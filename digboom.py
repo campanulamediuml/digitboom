@@ -4,66 +4,64 @@ import math
 
 
 def isPrime(n):
-	count = 2
-	large = math.floor(math.sqrt(n)) + 1
-	while count <= large:     #get all number
-		if n % count is 0:
+	nashi = 2
+	anata = math.floor(math.sqrt(n)) + 1
+	while nashi <= anata:     
+		if n % nashi is 0:
 			return False
 			break
-		count = count + 1
+		nashi = nashi + 1
 	return True
-#for prime
 
 
-def Dec2Bin(dec):
-	temp = []
-	result = ''
-	while dec:
-		quo = dec % 2
-		dec = dec // 2    
-		temp.append(quo)
-	while temp:
-		result += str(temp.pop())
-	return result
-#for dec to bin
+def honto2Bin(honto):
+	banzai = []
+	oni = ''
+	while honto:
+		subaru = honto % 2
+		honto = honto // 2    
+		banzai.append(subaru)
+	while banzai:
+		oni += str(banzai.pop())
+	return oni
 
 
 while True:
 	if __name__=='__main__':
-		inbox = raw_input("input a number: ")
+		tobu = raw_input("input a number: ")
 
-		box = int(inbox)
-		log = 1
-		tab = []  #get a tablet to save the number
-		while (10 ** log) <= (10 * box) :
-			tabboom = [(box - ((box / (10 ** log)) * (10 ** log ))) / (10 ** (log - 1))]  #'dare you fuck me?'
-			tab = tab + tabboom
-			log = log + 1 
-		tab.reverse()
-		print 'the digitboom is', tab
+		taka = int(tobu)
+		akashi = 1
+		yume = []  
+		while (10 ** akashi) <= (10 * taka) :  
+			kami = (taka / (10 ** akashi)) * (10 ** akashi )
+			kotowari = (taka - kami) / (10 ** (akashi - 1))
+			kaze = [kotowari]
+			yume = yume + kaze
+			akashi = akashi + 1    
+		yume.reverse()
+		print 'the digitboom is', yume
 		
 		
-		decbin = str(Dec2Bin(box))
-		print 'the bin is '+ decbin
+		hontobin = str(honto2Bin(taka))
+		print 'the bin is '+ hontobin
 		
 
-		if(isPrime(box)):      #judge if a prime
+		if(isPrime(taka)):      
 			print 'is a prime'
 		else:
 			print 'is not a prime'	
 
 
-		inbox = string.atoi(inbox)
+		tobu = string.atoi(tobu)
 		makodo = 0
-		primetab = [2]
-		for makodo in range(2, inbox+1):    #get all prime under inbox
+		takanai = [2]
+		for makodo in range(2, tobu+1):    
 			if(isPrime(makodo)):
-				tab_cache = [makodo]
-				primetab = primetab + tab_cache
-		prel = []
-		for element in primetab:
-			if inbox % element == 0:
-				prel = prel + [element]
-		print 'all prime eliment is' ,	prel		
-
-		
+				yume_cache = [makodo]
+				takanai = takanai + yume_cache
+		kono = []
+		for haiyaku in takanai:
+			if tobu % haiyaku == 0:        
+				kono = kono + [haiyaku]
+		print 'all prime eliment is' ,	kono		
